@@ -1,9 +1,21 @@
 [package]
-name = "rs-command-line-graph"
+name = "rs-terminal-graph-plot"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[lib]
+name = "terminal_graph_plot"
+path = "src/lib/lib.rs"
+
 [dependencies]
-crossterm = "0.25.0"
+crossterm = {version = "0.25.0", optional = true}
+
+[features]
+interactive = ["crossterm"]
+
+[[bin]]
+name = "terminal_graph_plot_bin"
+required-features = ["interactive"]
+path = "src/main.rs"

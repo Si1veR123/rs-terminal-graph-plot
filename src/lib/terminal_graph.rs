@@ -5,8 +5,8 @@ pub type Coord = (isize, isize);
 
 pub struct TerminalGraph {
     widgets: Vec<Box<dyn Widget>>,
-    screen_offset: Coord,
-    screen_scale: i8,
+    pub screen_offset: Coord,
+    pub screen_scale: i8,
 }
 
 impl TerminalGraph {

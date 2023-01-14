@@ -115,7 +115,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rs-command-line-graph"
+name = "rs-terminal-graph-plot"
 version = "0.1.0"
 dependencies = [
  "crossterm",
