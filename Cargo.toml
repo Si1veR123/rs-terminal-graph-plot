@@ -11,10 +11,10 @@ path = "src/lib/lib.rs"
 
 [dependencies]
 crossterm = {version = "0.25.0", optional = true}
-rs-math-text-parser = { git = "https://github.com/Si1veR123/rs-math-text-parser" }
+rs-math-text-parser = { git = "https://github.com/Si1veR123/rs-math-text-parser", optional = true }
 
 [features]
-interactive = ["crossterm"]
+interactive = ["crossterm", "rs-math-text-parser"]
 
 [[bin]]
 name = "terminal_graph_plot_bin"
