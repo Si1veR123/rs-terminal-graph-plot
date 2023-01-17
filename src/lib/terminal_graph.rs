@@ -4,7 +4,7 @@ use std::io::{self, Write};
 pub type Coord = (isize, isize);
 
 pub struct TerminalGraph {
-    widgets: Vec<Box<dyn Widget>>,
+    pub widgets: Vec<Box<dyn Widget>>,
     pub screen_offset: Coord,
     pub screen_scale: i8,
 }

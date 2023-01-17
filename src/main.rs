@@ -1,6 +1,9 @@
 use terminal_graph_plot::terminal_graph::TerminalGraph;
+use terminal_graph_plot::widgets::GraphFunctionEquationValue;
+use math_parser::equation::{EquationEval, EquationValue};
 
 use std::io;
+use std::env;
 
 use crossterm::{
     execute,
@@ -11,6 +14,12 @@ use crossterm::{
 };
 
 fn main() -> Result<(), io::Error> {
+    let mut equations: Vec<EquationValue> = vec![];
+
+    env::args().skip(1).for_each( |function| {
+        equations.push(EquationValue::from(function))
+    });
+
     let _ = enable_raw_mode()?;
     let mut stdout = io::stdout();
     execute!(
@@ -31,10 +40,17 @@ fn main() -> Result<(), io::Error> {
     // );
 
     let mut graph = TerminalGraph::default_axes();
-    graph.add_graph(&|x| (x*0.03).exp()*15.0, Some('#'));
-    graph.add_graph(
-        &|x| (x*0.1).sin() * 10.0, 
-        Some('@'));
+
+    let possible_chars = ['#', '@', 'o', '+', '$', '%'];
+    let mut current_char = 0;
+
+    for eq in equations {
+        let mut widg = GraphFunctionEquationValue::with_equation(eq);
+        widg.set_char(possible_chars[current_char]);
+        current_char = (current_char + 1) % 6;
+        graph.widgets.push(Box::new(widg));
+    }
+
     let _r = graph.draw(&mut stdout, current_size).expect("couldnt draw graph");
 
     loop {
