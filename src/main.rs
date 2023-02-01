@@ -1,6 +1,6 @@
 use terminal_graph_plot::terminal_graph::TerminalGraph;
 use terminal_graph_plot::widgets::GraphFunctionEquationValue;
-use math_parser::equation::{EquationEval, EquationValue};
+use math_parser::equation::EquationValue;
 
 use std::io;
 use std::env;

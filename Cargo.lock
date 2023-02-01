@@ -141,7 +141,7 @@ dependencies = [
 [[package]]
 name = "rs-math-text-parser"
 version = "0.1.0"
-source = "git+https://github.com/Si1veR123/rs-math-text-parser#af89241b66037493c123ac55fa6a53426e246ea5"
+source = "git+https://github.com/Si1veR123/rs-math-text-parser#211d78d9edee8b213a99ede34821621e420f40fd"
 dependencies = [
  "strum",
  "strum_macros",
